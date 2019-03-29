@@ -22,6 +22,20 @@ spec:
       containers:
       - name: echo-happy-helming
         image: govargo/happy-helming:only-echo
+        ports:
+         - containerPort: 8080
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
 ---
 ## ============  Service ============ ##
 
