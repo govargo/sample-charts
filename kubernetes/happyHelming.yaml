@@ -22,6 +22,7 @@ spec:
       containers:
       - name: echo-happy-helming
         image: govargo/happy-helming:only-echo
+        imagePullPolicy: Always
         ports:
          - containerPort: 8080
         livenessProbe:
