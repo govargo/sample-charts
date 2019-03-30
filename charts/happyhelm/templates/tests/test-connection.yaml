@@ -12,7 +12,7 @@ metadata:
 spec:
   containers:
     - name: curl
-      image: busybox
+      image: appropriate/curl
       command: ['curl']
       args:  ['http://{{ include "happyhelm.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
