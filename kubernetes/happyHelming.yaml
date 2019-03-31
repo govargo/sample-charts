@@ -1,0 +1,54 @@
+## ============  Deployment ============ ##
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: happy-helming
+  labels:
+    app: happy-helming
+    version: only-echo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: happy-helming
+      version: only-echo
+  template:
+    metadata:
+      labels:
+        app: happy-helming
+        version: only-echo
+    spec:
+      containers:
+      - name: echo-happy-helming
+        image: govargo/happy-helming:only-echo
+        imagePullPolicy: Always
+        ports:
+         - containerPort: 8080
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+---
+## ============  Service ============ ##
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: echo-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: happy-helming
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
