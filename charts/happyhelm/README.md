@@ -1,6 +1,8 @@
 # Happy Helming Chart
 
-* Echo Happy Helming!
+* Sample Chart for Happy Helming Application
+
+> [Happly Helming Application](https://github.com/govargo/go-happyhelming)
 
 ## TL;DR;
 
@@ -41,5 +43,5 @@ The command removes all the Kubernetes components associated with the chart and 
 | `service.type`                            | Kubernetes service type                       | `LoadBalancer`                                          |
 | `service.port`                            | Kubernetes port where service is exposed      | `80`                                                    |
 | `livenessProbe`                           | Liveness Probe settings                       | `{ "tcpSocket": { "port": 8080 } }`                     |
-| `readinessProbe`                          | Rediness Probe settings                       | `{ "httpGet": { "path": "/", "port": 8080 } }`          |
+| `readinessProbe`                          | Rediness Probe settings                       | `{ "httpGet": { "path": "/", "port": 8080 }`        |
 | `resources`                               | CPU/Memory resource requests/limits           | `{}`                                                    |
