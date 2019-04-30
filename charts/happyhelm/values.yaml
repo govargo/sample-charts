@@ -42,6 +42,7 @@ resources: {}
   #  cpu: 100m
   #   memory: 128Mi
 
+# Envoy SubCharts Values
 envoy:
   service:
     type: LoadBalancer
