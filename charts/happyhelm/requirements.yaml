@@ -1,0 +1,4 @@
+dependencies:
+  - name: envoy
+    version: 1.5.0
+    repository: https://kubernetes-charts.storage.googleapis.com

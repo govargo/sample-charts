@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ include "happyhelm.fullname" . }}
+  name: {{ .Values.service.name }}
   labels:
     app.kubernetes.io/name: {{ include "happyhelm.name" . }}
     helm.sh/chart: {{ include "happyhelm.chart" . }}
