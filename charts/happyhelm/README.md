@@ -40,8 +40,11 @@ The command removes all the Kubernetes components associated with the chart and 
 | `image.pullPolicy`                        | Image pull policy                             | `Always`                                                |
 | `nameOverride`                            | Name Override                                 | ``                                                      |
 | `fullnameOverride`                        | FullName Override                             | ``                                                      |
-| `service.type`                            | Kubernetes service type                       | `LoadBalancer`                                          |
+| `service.name`                            | Kubernetes service name                       | `happyhelm`                                             |
+| `service.type`                            | Kubernetes service type                       | `ClusterIP`                                             |
 | `service.port`                            | Kubernetes port where service is exposed      | `80`                                                    |
 | `livenessProbe`                           | Liveness Probe settings                       | `{ "tcpSocket": { "port": 8080 } }`                     |
-| `readinessProbe`                          | Rediness Probe settings                       | `{ "httpGet": { "path": "/", "port": 8080 } }`      |
+| `readinessProbe`                          | Rediness Probe settings                       | `{ "httpGet": { "path": "/", "port": 8080 } }`          |
 | `resources`                               | CPU/Memory resource requests/limits           | `{}`                                                    |
+| `envoy.service.type`                      | Envoy Proxy service type                      | `LoadBalancer`                                          |
+| `envoy.files`                             | content of a full envoy configuration file as documented in https://www.envoyproxy.io/docs/envoy/latest/configuration/configuration | See [values.yaml](values.yaml) |
